@@ -3,6 +3,7 @@ set +e
 
 # Ensure Entware paths are prioritized in PATH (crucial for finding /opt/bin/wget before /bin/wget)
 export PATH="/opt/bin:/opt/sbin:$PATH"
+export SMART_INSTALLER=1
 
 PACKAGE="${1:-smart-route}"
 
@@ -222,6 +223,13 @@ for STAT_FILE in /opt/lib/opkg/status /opt/var/lib/opkg/status; do
     fi
 done
 
+# Backup existing config to prevent loss across remove/reinstall
+CFG_BACKUP=""
+if [ -f "$CFG_FILE" ]; then
+    CFG_BACKUP="/tmp/${PACKAGE}_cfg_bak_$$.json"
+    cp -a "$CFG_FILE" "$CFG_BACKUP" 2>/dev/null || true
+fi
+
 printf "\033[1;34m[*]\033[0m Installing/upgrading package: \033[1;37m%s\033[0m...\n" "$PACKAGE"
 /opt/bin/opkg remove "$PACKAGE" --force-remove --force-depends >/dev/null 2>&1 || true
 /opt/bin/opkg install "$PACKAGE" --force-remove --force-reinstall --force-overwrite 2>/dev/null || \
@@ -231,6 +239,7 @@ printf "\033[1;34m[*]\033[0m Installing/upgrading package: \033[1;37m%s\033[0m..
 INSTALL_RES=$?
 
 if [ $INSTALL_RES -ne 0 ]; then
+    rm -f "$CFG_BACKUP" 2>/dev/null || true
     printf "\n\033[1;31m================================================================================\033[0m\n"
     printf "\033[1;31m [ERROR] Ошибка установки %s. Пожалуйста, проверьте вывод выше.\033[0m\n" "$PKG_TITLE"
     printf "\033[1;31m================================================================================\033[0m\n\n"
@@ -238,44 +247,48 @@ if [ $INSTALL_RES -ne 0 ]; then
 fi
 
 # 8. Apply configured port to config file
+# Restore backup if opkg removed it
+if [ ! -f "$CFG_FILE" ] && [ -n "$CFG_BACKUP" ] && [ -f "$CFG_BACKUP" ]; then
+    cp -a "$CFG_BACKUP" "$CFG_FILE" 2>/dev/null || true
+fi
+rm -f "$CFG_BACKUP" 2>/dev/null || true
+
 mkdir -p "/opt/etc/${PACKAGE}"
-if [ -f "$CFG_FILE" ]; then
-    if grep -q '"web_port"' "$CFG_FILE"; then
-        sed -i "s/\"web_port\":[ ]*[0-9]*/\"web_port\": $SELECTED_PORT/" "$CFG_FILE"
-    else
-        sed -i "s/{/{\n  \"web_port\": $SELECTED_PORT,/" "$CFG_FILE"
-    fi
+if [ ! -f "$CFG_FILE" ]; then
+    printf '{\n  "web_port": %s\n}\n' "$SELECTED_PORT" > "$CFG_FILE"
+elif grep -q '"web_port"' "$CFG_FILE"; then
+    sed -i -E "s/\"web_port\"[[:space:]]*:[[:space:]]*[0-9]+/\"web_port\": $SELECTED_PORT/" "$CFG_FILE"
+else
+    sed -i "s/{/{\n  \"web_port\": $SELECTED_PORT,/" "$CFG_FILE"
 fi
 
 # 9. Start / Restart service safely
+sleep 2
+
 if [ -x "/opt/etc/init.d/S99smart-utils" ] && [ "$PACKAGE" = "smart-utils" ]; then
     printf "\033[1;34m[*]\033[0m Перезапуск службы Smart-Utils...\n"
-    /opt/etc/init.d/S99smart-utils restart >/dev/null 2>&1 || {
-        killall -9 smart-utils >/dev/null 2>&1
-        sleep 1
-        /opt/etc/init.d/S99smart-utils start >/dev/null 2>&1
-    }
+    /opt/etc/init.d/S99smart-utils stop >/dev/null 2>&1 || true
+    killall -9 smart-utils >/dev/null 2>&1 || true
+    sleep 1
+    /opt/etc/init.d/S99smart-utils start >/dev/null 2>&1
 elif [ -x "/opt/etc/init.d/S99smart-route" ] && [ "$PACKAGE" = "smart-route" ]; then
     printf "\033[1;34m[*]\033[0m Перезапуск службы Smart-Route...\n"
-    /opt/etc/init.d/S99smart-route restart >/dev/null 2>&1 || {
-        killall -9 smart-route >/dev/null 2>&1
-        sleep 1
-        /opt/etc/init.d/S99smart-route start >/dev/null 2>&1
-    }
+    /opt/etc/init.d/S99smart-route stop >/dev/null 2>&1 || true
+    killall -9 smart-route >/dev/null 2>&1 || true
+    sleep 1
+    /opt/etc/init.d/S99smart-route start >/dev/null 2>&1
 elif [ -x "/opt/etc/init.d/S99smart-photo" ] && [ "$PACKAGE" = "smart-photo" ]; then
     printf "\033[1;34m[*]\033[0m Перезапуск службы Smart-Photo...\n"
-    /opt/etc/init.d/S99smart-photo restart >/dev/null 2>&1 || {
-        killall -9 smart-photo >/dev/null 2>&1
-        sleep 1
-        /opt/etc/init.d/S99smart-photo start >/dev/null 2>&1
-    }
+    /opt/etc/init.d/S99smart-photo stop >/dev/null 2>&1 || true
+    killall -9 smart-photo >/dev/null 2>&1 || true
+    sleep 1
+    /opt/etc/init.d/S99smart-photo start >/dev/null 2>&1
 elif [ -x "/opt/etc/init.d/S99smart-vpn" ] && [ "$PACKAGE" = "smart-vpn" ]; then
     printf "\033[1;34m[*]\033[0m Перезапуск службы Smart-VPN...\n"
-    /opt/etc/init.d/S99smart-vpn restart >/dev/null 2>&1 || {
-        killall -9 smart-vpn >/dev/null 2>&1
-        sleep 1
-        /opt/etc/init.d/S99smart-vpn start >/dev/null 2>&1
-    }
+    /opt/etc/init.d/S99smart-vpn stop >/dev/null 2>&1 || true
+    killall -9 smart-vpn >/dev/null 2>&1 || true
+    sleep 1
+    /opt/etc/init.d/S99smart-vpn start >/dev/null 2>&1
 fi
 
 # 10. Wait for service and verify via real API query
