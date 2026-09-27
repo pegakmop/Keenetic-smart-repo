@@ -1,3 +1,16 @@
+Package: smart-route
+Version: 1.0.187
+Depends: iptables, ipset, ip-full, ca-certificates
+Section: net
+Architecture: mipsel-3.4
+Maintainer: Smart-Route Team
+Description: Dynamic multi-interface failover routing and transparent proxy daemon with modern Web UI for Keenetic Entware routers.
+Priority: optional
+MD5Sum: 702713b97f09e9b92a2434a2ecf75fd3
+SHA256Sum: 868255713318171569e0934c0be5935d3e30f4ab543a4189edc05e17da58cf20
+Size: 3874019
+Filename: smart-route_1.0.187_mipsel-3.4.ipk
+
 Package: ffmpeg-mini
 Version: 1.0.0
 Section: multimedia
@@ -34,32 +47,6 @@ MD5Sum: 05882d14319b82b0dcdf4062b67adc15
 SHA256Sum: c1bc31de5467f7a1b2940d7175e90e885ac5fb109b85e9943cd42502dd64f7fb
 Size: 4071168
 Filename: smart-photo_1.0.72_mipsel-3.4.ipk
-
-Package: smart-route
-Version: 1.0.184
-Depends: iptables, ipset, ip-full, ca-certificates
-Section: net
-Architecture: mipsel-3.4
-Maintainer: Smart-Route Team
-Description: Dynamic multi-interface failover routing and transparent proxy daemon with modern Web UI for Keenetic Entware routers.
-Priority: optional
-MD5Sum: d39f55f563822d0650554ca80675d041
-SHA256Sum: d88f9c76989a4b8a9d91e6633fff5bdffe9342b593e3e780d84da9f343ff6119
-Size: 3869747
-Filename: smart-route_1.0.184_mipsel-3.4.ipk
-
-Package: smart-route
-Version: 1.0.185
-Depends: iptables, ipset, ip-full, ca-certificates
-Section: net
-Architecture: mipsel-3.4
-Maintainer: Smart-Route Team
-Description: Dynamic multi-interface failover routing and transparent proxy daemon with modern Web UI for Keenetic Entware routers.
-Priority: optional
-MD5Sum: d2ff4d53c7fd5be973def58d683170b6
-SHA256Sum: 9bca65b14e96c4323de9fe5dd903c45f1f673177210492f684dd5e4d7b0569b4
-Size: 3870741
-Filename: smart-route_1.0.185_mipsel-3.4.ipk
 
 Package: smart-utils
 Version: 1.0.37
