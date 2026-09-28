@@ -1,10 +1,10 @@
-# 📷 Smart-Photo for Keenetic Entware
+# 📷 SmartPhoto for Keenetic Entware
 
 [![Build & Publish OPKG Packages](https://github.com/snakelair/SmartPhoto/actions/workflows/deploy-packages.yml/badge.svg)](https://github.com/snakelair/SmartPhoto/actions)
-[![Release](https://img.shields.io/badge/release-v1.0.111-blue.svg)](https://github.com/snakelair/SmartPhoto/releases)
+[![Release](https://img.shields.io/badge/release-v1.0.132-blue.svg)](https://github.com/snakelair/SmartPhoto/releases)
 [![Keenetic Entware](https://img.shields.io/badge/Keenetic-Entware-38d39f.svg)](https://github.com/snakelair/Keenetic)
 
-**Smart-Photo** — это легковесный, быстрый персональный фотосервер в стиле **Google Photos**, созданный специально для роутеров **Keenetic** с USB-портом и средой **Entware** (а также для Linux и Windows).
+**SmartPhoto** — это легковесный, быстрый персональный фотосервер в стиле **Google Photos**, созданный специально для роутеров **Keenetic** с USB-портом и средой **Entware** (а также для Linux и Windows).
 
 Сервис автоматически индексирует фотографии с подключенного USB-накопителя (флешки, внешнего жесткого диска или SSD), формирует бесконечную фотоленту по датам, налету генерирует и кэширует миниатюры, извлекает подробные EXIF-данные и предоставляет современный веб-интерфейс в тёмной теме (Glassmorphism).
 

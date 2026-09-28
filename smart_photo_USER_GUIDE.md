@@ -1,6 +1,6 @@
-# 📘 Руководство пользователя Smart-Photo
+# 📘 Руководство пользователя SmartPhoto
 
-**Smart-Photo** — персональный фотосервер и просмотрщик для роутеров Keenetic с USB-накопителями и средой Entware.
+**SmartPhoto** — персональный фотосервер и просмотрщик для роутеров Keenetic с USB-накопителями и средой Entware.
 
 ---
 
@@ -11,7 +11,7 @@
 2. В веб-интерфейсе роутера Keenetic (в разделе «Сетевые диски и USB») убедитесь, что диск смонтирован.
 3. По умолчанию в Entware точка монтирования находится в `/tmp/mnt/` (например, `/tmp/mnt/DISK_NAME/Photos`).
 
-### Шаг 2: Установка Smart-Photo
+### Шаг 2: Установка SmartPhoto
 Выполните через SSH-консоль роутера:
 ```bash
 curl -sSL https://raw.githubusercontent.com/snakelair/Keenetic/main/install.sh | sh -s smart-photo

@@ -1,4 +1,109 @@
-# 📦 Smart-Photo Changelog
+# 📦 SmartPhoto Changelog
+
+## [1.0.132] - 2026-09-28
+
+### Refine trip title naming to omit country name fallback when specific cities exist
+- Refine trip title naming to omit country name fallback when specific cities exist
+
+## [1.0.131] - 2026-09-28
+
+### Filter out local errands (<75km) from trips by distance to base locations
+- Filter out local errands (<75km) from trips by distance to base locations
+
+## [1.0.130] - 2026-09-28
+
+### Style system logs and terminal cleanly for light theme
+- Style system logs and terminal cleanly for light theme
+
+## [1.0.129] - 2026-09-28
+
+### Rename albums section to 'Папки и Альбомы', adaptively insert 1-2 months in scrubber, fix month labels in light theme
+- Rename albums section to 'Папки и Альбомы', adaptively insert 1-2 months in scrubber, fix month labels in light theme
+
+## [1.0.128] - 2026-09-28
+
+### Add Chrome/Windows H.265 setup instructions with 1-click copy to unsupported video modal
+- Add Chrome/Windows H.265 setup instructions with 1-click copy to unsupported video modal
+
+## [1.0.127] - 2026-09-28
+
+### Handle unsupported video codecs (HEVC), fix video container sizing and add high-res poster
+- Handle unsupported video codecs (HEVC), fix video container sizing and add high-res poster
+
+## [1.0.126] - 2026-09-28
+
+### Fix timeline lightbox infinite navigation past first batch and counter display
+- Fix timeline lightbox infinite navigation past first batch and counter display
+
+## [1.0.125] - 2026-09-28
+
+### Fix daemon crash: add missing idx.mu.Lock in IndexSingleFile called by sync diff
+- Fix daemon crash: add missing idx.mu.Lock in IndexSingleFile called by sync diff
+
+## [1.0.124] - 2026-09-28
+
+### Fix badge count contrast on active nav tab in light theme
+- Fix badge count contrast on active nav tab in light theme
+
+## [1.0.123] - 2026-09-28
+
+### Refine light theme: brighten Grid / Tree view switcher
+- Refine light theme: brighten Grid / Tree view switcher
+
+## [1.0.122] - 2026-09-28
+
+### Refine light theme: brighten scroll-top button, folder tree, base city info, diagnostics, settings, clients and donate tabs
+- Refine light theme: brighten scroll-top button, folder tree, base city info, diagnostics, settings, clients and donate tabs
+
+## [1.0.121] - 2026-09-28
+
+### Add light theme and theme switcher with dark default
+- Add light theme and theme switcher with dark default
+
+## [1.0.120] - 2026-09-28
+
+### Fix Nekrasovka Moscow base city, seasonal dacha detection and AI scan 100pct flash
+- Fix Nekrasovka Moscow base city, seasonal dacha detection and AI scan 100pct flash
+
+## [1.0.119] - 2026-09-28
+
+### Support changing base cities over photo timeline with scan progress indicator and details spoiler
+- Support changing base cities over photo timeline with scan progress indicator and details spoiler
+
+## [1.0.118] - 2026-09-28
+
+### Add Cancel button in Settings when changes are made
+- Add Cancel button in Settings when changes are made
+
+## [1.0.117] - 2026-09-28
+
+### Use short unit abbreviations MB, GB in status metrics
+- Use short unit abbreviations MB, GB in status metrics
+
+## [1.0.116] - 2026-09-28
+
+### Rename Smart-Photo to SmartPhoto across project keeping Keenetic package as smart-photo
+- Rename Smart-Photo to SmartPhoto across project keeping Keenetic package as smart-photo
+
+## [1.0.115] - 2026-09-28
+
+### Clarify photo collection size label in status metrics
+- Clarify photo collection size label in status metrics
+
+## [1.0.114] - 2026-09-28
+
+### Add AI progress bar and round photo disk size to MB, GB, TB
+- Add AI progress bar and round photo disk size to MB, GB, TB
+
+## [1.0.113] - 2026-09-28
+
+### Mobile UI optimization and remove PWA button from mobile header
+- Mobile UI optimization and remove PWA button from mobile header
+
+## [1.0.112] - 2026-09-28
+
+### Accurate SSD detection and drive partition label priority
+- Accurate SSD detection and drive partition label priority
 
 ## [1.0.111] - 2026-09-27
 
@@ -198,7 +303,7 @@
 ### Dynamic Photo & Video Streaming into .HYBRID. Demoscene Atelier
 - **Интеграция HYBRID Demoscene с живой подгрузкой медиа**:
   - Встроен ультралегковесный 64K WebGL-рендерер `hybrid.html` (FastTracker II 10-канальный XM-движок Quazar/Sanxion) вместо статического `debris.html`.
-  - Реализован API подбрасывания фото и видео из медиатеки Smart-Photo на лету:
+  - Реализован API подбрасывания фото и видео из медиатеки SmartPhoto на лету:
     1. Прямые вызовы функций iframe: `feedMedia()`, `feedPhotos()`, `feedVideos()`, `addMedia()`.
     2. Безопасные междоменные сообщения: `postMessage({ type: 'feedMedia', items: [...] })`.
     3. Поддержка Drag & Drop: прямое перетаскивание любых изображений и видеороликов на экран демки.
@@ -209,7 +314,7 @@
 ### Demoscene Easter Egg: Farbrausch .debris. (FR-041)
 - **Интерактивная пасхалка при клике по логотипу**:
   - Реализован запуск культового рендерера демосцены Farbrausch (.debris. / FR-041) с 16-канальным S3M аудио-трекером (`debris.html`) в стиле SmartUtils.
-  - Активация по 5 быстрым кликам по логотипу или названию Smart-Photo с динамической пружинящей анимацией и поворотом логотипа.
+  - Активация по 5 быстрым кликам по логотипу или названию SmartPhoto с динамической пружинящей анимацией и поворотом логотипа.
   - Полноэкранный Glassmorphism-оверлей с навигационной шапкой, кнопкой выхода `[ESC]` и обработкой закрытия по клавише Escape как из родительского окна, так и изнутри iframe.
 
 ## [1.0.72] - 2026-09-14
@@ -293,14 +398,14 @@
 ### Full-Fledged Windows Desktop GUI, Native System Tray & Embedded Application Resources
 - **Полноценное GUI-приложение без окна консоли и сервера**:
   - Бинарный файл `smart-photo-desktop.exe` компилируется с флагом подсистемы `-H windowsgui`, полностью исключая появление черного окна терминала при запуске.
-  - В бинарный файл встроены официальные Windows-ресурсы (`.syso`): фирменная иконка Smart-Photo высокого разрешения (256x256), манифест Windows GUI (поддержка масштабирования DPI, темы и визуальные стили Windows 10/11), название и метаданные продукта.
+  - В бинарный файл встроены официальные Windows-ресурсы (`.syso`): фирменная иконка SmartPhoto высокого разрешения (256x256), манифест Windows GUI (поддержка масштабирования DPI, темы и визуальные стили Windows 10/11), название и метаданные продукта.
   - В проводнике Windows (Explorer), панели задач и при переключении окон по Alt-Tab отображается нативная иконка приложения вместо стандартного значка.
 - **Запуск в виде автономного окна приложения (App Mode)**:
   - Вместо открытия ссылки во вкладке общего браузера приложение запускается в отдельном нативном окне приложения без адресной строки, навигации и закладок (`--app=...`) с изолированным профилем данных (`AppProfile`).
 - **Нативный системный трей Windows (Pure Go Win32 API, `CGO_ENABLED=0`)**:
   - Цикл обработки сообщений Win32 привязан к потоку операционной системы (`runtime.LockOSThread()`), гарантируя надежную доставку системных событий.
   - Загрузка иконки высокого разрешения напрямую из встроенных ресурсов PE-модуля.
-  - Контекстное меню по правому клику: Открыть Smart-Photo, статус роутера, принудительная синхронизация, пауза/возобновление фонового анализа, безопасный выход.
+  - Контекстное меню по правому клику: Открыть SmartPhoto, статус роутера, принудительная синхронизация, пауза/возобновление фонового анализа, безопасный выход.
   - Корректное скрытие контекстного меню при клике в любое место экрана (`PostMessage(hWnd, WM_NULL, 0, 0)`).
   - Чистое закрытие приложения: выбор пункта «Выход» в трее корректно останавливает фоновый HTTP-сервер, сохраняет кэш индекса на диск и сразу удаляет значок из системного трея (`NIM_DELETE`).
 - **Улучшение процесса сборки (`build.bat`)**:
@@ -313,8 +418,8 @@
   - Алгоритм анализа на роутере переведен в режим чистой классификации: кадры с людьми получают тег `people` (и `portrait` при портретной ориентации) без генерации фиктивных лиц и боксов.
   - Устранено слепое автокластерирование (`autoClusterPersonsLocked`), разбивавшее случайные фото на пустые карточки `Персона 1..22`.
   - Из хранилища `people.json` автоматически вычищены все фиктивные карточки `Персона X`, созданные прежним эвристическим алгоритмом роутера.
-- **Эксклюзивное распознавание персон в Smart-Photo Desktop**:
-  - Полноценное распознавание лиц, сопоставление эмбеддингов и именование персон закреплено исключительно за настольным приложением **Smart-Photo Desktop** с синхронизацией результатов на роутер через API (`POST /api/ai/faces`).
+- **Эксклюзивное распознавание персон в SmartPhoto Desktop**:
+  - Полноценное распознавание лиц, сопоставление эмбеддингов и именование персон закреплено исключительно за настольным приложением **SmartPhoto Desktop** с синхронизацией результатов на роутер через API (`POST /api/ai/faces`).
   - В веб-интерфейсе в разделе «Люди» добавлена прямая кнопка быстрого перехода «👥 Показать все фото с людьми», фильтрующая медиатеку по тегу `people`.
 
 ## [1.0.66] - 2026-09-14
@@ -336,7 +441,7 @@
 - **Полноценное GUI-приложение без окна консоли**:
   - Бинарный файл `smart-photo-desktop.exe` переведен на подсистему `windowsgui` (`-ldflags "-H windowsgui"`), благодаря чему при запуске больше не появляется черное окно терминала/сервера.
 - **Запуск в виде автономного окна приложения (App Mode)**:
-  - Вместо открытия новой вкладки в общем браузере Smart-Photo Desktop запускается как полноценное отдельное нативное окно приложения (без адресной строки, навигационных панелей, закладок и лишних вкладок) с собственным изолированным профилем (`AppProfile`).
+  - Вместо открытия новой вкладки в общем браузере SmartPhoto Desktop запускается как полноценное отдельное нативное окно приложения (без адресной строки, навигационных панелей, закладок и лишних вкладок) с собственным изолированным профилем (`AppProfile`).
 - **Нативный значок в системном трее Windows**:
   - Реализован системный трей на базе Win32 API (`Shell_NotifyIconW`), работающий на чистом Go (`CGO_ENABLED=0`).
   - Поддержка всплывающего контекстного меню по правому клику мыши (Открыть интерфейс, Статус роутера, Синхронизация, Пауза/Возобновление AI, Выход).
@@ -379,8 +484,8 @@
   - Кластеризация снимков без GPS по временному интервалу (gap $\le 72$ ч) объединяет разбитые папки одного выезда (например, «2022-12-03 Ярославль» и «2022-12-04 Ярославль») в единое 2-дневное мини-путешествие: «✈️ Мини-путешествие в Ярославль 2022 Декабрь».
   - Устранена ошибка преждевременного выхода при отсутствии GPS-координат.
 
-### Smart-Photo Desktop (GUI) Architecture & Multi-Platform Client (Win, Linux, Mac)
-- **Архитектура и мультиплатформенный клиент Smart-Photo Desktop**:
+### SmartPhoto Desktop (GUI) Architecture & Multi-Platform Client (Win, Linux, Mac)
+- **Архитектура и мультиплатформенный клиент SmartPhoto Desktop**:
   - Спроектировано и реализовано настольное приложение для Windows, Linux и macOS (`cmd/smart-photo-desktop`).
   - Поддержка трех режимов запуска: полноэкранная веб-галерея, легковесный просмотрщик фото (`--viewer <path>`), фоновый агент в системном трее (`--tray`) и пакетный процессор (`--powerboost`).
 - **Бесконфликтный совместный доступ к архиву на NAS (Direct NAS Sharing & Power Boost)**:
